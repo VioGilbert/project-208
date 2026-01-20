@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Attendance - Athena</title>
+    <style>
+        body {
+            background-color: thistle;   /* Set background color */
+            text-align: center;          /* Center align all text */
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        h2 {
+            margin-top: 30px;
+        }
+
+        button {
+            background-color: #bc2377;   /* Default pink */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: plum;   /* on hover */
+        }
+
+        button:active {
+            background-color: purple;    /* Change to purple when clicked */
+        }
+
+        a {
+            color: purple;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h2>Library Attendance</h2>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+          <p style="color: rgb(0, 0, 0);">{{ message }}</p>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <form method="POST">
+        <p>Student ID: <b>{{ session['user_id'] }}</b></p>
+        <button type="submit">Register Attendance</button>
+    </form>
+
+    <p><a href="/dashboard">Back to Dashboard</a></p>
+</body>
+</html>

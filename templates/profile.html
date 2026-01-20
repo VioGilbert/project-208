@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Profile</title>
+    <style>
+        body {
+            background-color: thistle;                 /* Thistle background */
+            text-align: center;                        /* Center align content */
+            font-family: "Courier New", Courier, monospace; /* Courier New font */
+        }
+
+        h2 {
+            margin-top: 30px;
+        }
+
+        p {
+            margin: 8px 0;
+        }
+
+        a {
+            color: purple;
+            text-decoration: none;
+            font-family: "Courier New", Courier, monospace;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h2>User Profile</h2>
+    <p><strong>First Name:</strong> {{ user['firstname'] }}</p>
+    <p><strong>Surname:</strong> {{ user['surname'] }}</p>
+    <p><strong>Date of Birth:</strong> {{ user['dob'] }}</p>
+    <p><strong>Phone:</strong> {{ user['phone'] }}</p>
+    <p><strong>Role:</strong> {{ user['role'] }}</p>
+
+    <p><a href="/dashboard">Back to Dashboard</a></p>
+</body>
+</html>

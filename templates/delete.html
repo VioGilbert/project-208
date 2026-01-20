@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Account - Athena Library</title>
+    <style>
+        .btn-delete {
+            background-color: darkmagenta !important; /* Red background */
+            color: white !important;              /* White text */
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn-delete:hover {
+            background-color: darkmagenta !important; /* Darker red on hover */
+        }
+    </style> 
+</head>
+<body>
+    <h3>Account Management</h3>
+    <p><a href="{{ url_for('edit_profile') }}">Edit My Profile</a></p>
+
+    <form action="{{ url_for('delete_account') }}" method="POST" 
+          onsubmit="return confirm('Are you sure you want to delete your account? This cannot be undone.');">
+        <button class="btn-delete">Test Button</button>
+    </form>
+
+    <hr>
+    <p><a href="{{ url_for('attendance') }}">Record Attendance</a></p>
+    <p><a href="{{ url_for('logout') }}">Logout</a></p>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+          <p><strong>{{ message }}</strong></p>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+</body>
+</html>

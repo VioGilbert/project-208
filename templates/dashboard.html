@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard - Athena</title>
+    <style>
+        body {
+            background-color: thistle;
+            font-family: "Courier New", Courier, monospace;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Athena Attendance Dashboard</h1>
+    <div style="display: flex; gap: 20px; justify-content: center;">
+        <div style="border: 1px solid #612020; padding: 40px;">
+            <h3>Total Patrons</h3>
+            <p><strong>{{ total_patrons }}</strong></p>
+        </div>
+        <div style="border: 1px solid #612020; padding: 40px;">
+            <h3>Total Admins</h3>
+            <p><strong>{{ total_admins }}</strong></p>
+        </div>
+    </div>
+
+    <p><a href="/attendance">Register Attendance</a></p>
+    <p><a href="/profile">View Profile</a></p>
+    <p><a href="/edit_profile">Edit Profile</a></p>
+    <form action="{{ url_for('delete_account') }}" method="post" style="display:inline;">
+        <button type="submit" onclick="return confirm('Are you sure you want to delete your account?');">
+            Delete Account
+        </button>
+    </form>
+
+    <hr>
+    <p>Logged in as: {{ session['user_id'] }} ({{ session['role'] }})</p>
+    <a href="/logout">Log Out</a>
+</body>
+</html>

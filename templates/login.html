@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login - Athena</title>
+    <style>
+        body {
+            background-color: thistle;
+            font-family: "Courier New", Courier, monospace;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        h2 {
+            margin-top: 50px;
+        }
+        form {
+            display: inline-block;
+            margin-top: 20px;
+            text-align: left; /* keeps form fields aligned nicely */
+        }
+        p {
+            color: purple;
+        }
+    </style>
+</head>
+<body>
+    <h1>Login</h1>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+          <p>{{ message }}</p>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <form method="POST">
+        <select name="role">
+            <option value="patron">Patron</option>
+            <option value="admin">Admin</option>
+        </select><br><br>
+        <input type="text" name="user_id" placeholder="Enter Card ID" required><br>
+        <input type="password" name="password" placeholder="Enter Password" required><br>
+        <button type="submit">Login</button>
+    </form>
+</body>
+</html>
